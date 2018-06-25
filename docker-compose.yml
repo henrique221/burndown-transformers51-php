@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  http_server:
+    volumes:
+      - .:/var/www/html
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+  
+    build: .
+    image: "burndown-app"
+    ports:
+      - "80:80"
+  mysql:
+    image: "mysql:5.7"
+    container_name: "burndown-mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+      MYSQL_DATABASE: "test"
+      TZ: "America/Sao_Paulo"
+    volumes:
+      - ./mysql:/var/lib/mysql

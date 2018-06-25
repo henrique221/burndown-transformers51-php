@@ -1,0 +1,1 @@
+docker-compose exec mysql mysql -utest -ptest -Dtest
