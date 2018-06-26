@@ -24,20 +24,18 @@
 	<button id="removeDataset">Remove Dataset</button>
 	<button id="addData">Add Data</button>
 	<button id="removeData">Remove Data</button>
+	
 	<script>
 		var DAYS = [];
 		var DATAS = [];
 		var day = new Date(2018, 6, 28);
-		
-		for (d = day.getDate(); d <= day.getDate()+11; d++)
-		{
-			DATAS.push(d);
-		};
 
-		for (i = 0; i <= 11; i++)
-		{
-			DAYS[i] = DATAS[i];
-		};
+		<?php for($i = 0; $i <= 11; $i++) : ?>
+			DATAS.push('<?php echo date('d/m/Y', strtotime('+' . $i . ' days')) ?>');
+			DAYS[<?php echo $i?>] = DATAS[<?php echo $i?>];
+			document.write(DATAS[<?php $data = date($i); echo $data;?>]);
+		<?php endfor;?>
+
 		var config = {
 			type: 'line',
 			data: {

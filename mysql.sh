@@ -1,1 +1,1 @@
-docker-compose exec mysql mysql -utest -ptest -Dtest
+docker-compose exec mysql mysql -uroot -padmin -Dtest
