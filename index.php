@@ -33,9 +33,8 @@
 		<?php for($i = 0; $i <= 11; $i++) : ?>
 			DATAS.push('<?php echo date('d/m/Y', strtotime('+' . $i . ' days')) ?>');
 			DAYS[<?php echo $i?>] = DATAS[<?php echo $i?>];
-			document.write(DATAS[<?php $data = date($i); echo $data;?>]);
 		<?php endfor;?>
-
+		
 		var config = {
 			type: 'line',
 			data: {
