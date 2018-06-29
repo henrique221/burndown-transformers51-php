@@ -1,1 +1,1 @@
-docker-compose exec mysql mysql -uroot -padmin -Dtest
+docker-compose exec mysql mysql -uroot -padmin -Dburndown

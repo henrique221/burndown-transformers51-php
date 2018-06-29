@@ -1,5 +1,5 @@
 <?php
-$servername = 'localhost:3306';
+$servername = 'mysql';
 $username = 'root';
 $password = 'admin';
 $database = 'burndown';
