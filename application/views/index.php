@@ -2,8 +2,8 @@
 
 <head>
 	<title>Line Chart</title>
-	<script src="Chart.bundle.js"></script>
-	<script src="utils.js"></script>
+	<script src="./assets/js/Chart.bundle.js"></script>
+	<script src="./assets/js/utils.js"></script>
 	<style>
 	canvas{
 		-moz-user-select: none;
