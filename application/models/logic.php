@@ -5,8 +5,6 @@ $sql = "select * from sprint";
 $result = mysqli_query($conn, $sql);
 $row=mysqli_fetch_assoc($result);
 
-
-
 function inserirNovaSprint($conn, $nome, $startDate, $endDate, $totalTasks)
 {
     $queryInsertDatasInSprint = "insert into sprint (nome, start_date, end_date, total_tasks) values ('{$nome}', '{$startDate}' , '{$endDate}', {$totalTasks});";
