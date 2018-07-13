@@ -14,8 +14,51 @@ class Device extends Model
         return $devices;
     }
 
-    public function updateProgresso($progressoId, $sprintId, $data, $remainingTasks, $bugs, $improvements, $extraTasks)
+    public function updateProgresso($dataProgresso)
     {
-        $query = "UPDATE progresso SET data = '" . $data . "', remaining_tasks = '" . $remainingTasks . "', bugs = '" . $bugs . "', improvements = '" . $improvements . "', extra_tasks = '" . $extraTasks . "'";
+        $query = "UPDATE progresso SET data = '" . $dataProgresso['data'] . "', 
+        remaining_tasks = '" . $dataProgresso['remainingTasks'] . "', 
+        bugs = '" . $dataProgresso['bugs'] . "', improvements = '" . $dataProgresso['improvements'] . "', 
+        extra_tasks = '" . $dataProgresso['extraTasks'] . "' where id_progresso = '" . $dataProgresso['idProgresso'] . "'";
+
+        $this->db->executeNonQuery($query);
+    }
+
+    public function updateSprint($dataSprint)
+    {
+        $query = "UPDATE progresso SET nome = '" . $dataSprint['nome'] . "', 
+                         start_date = '" . $dataSprint['startDate'] . "', 
+                         end_date = '" . $dataSprint['endDate'] . "', 
+                         total_tasks = '" . $dataSprint['totalTasks'] . "' 
+                         where id = '" . $dataSprint['idSprint'] . "'";
+
+        $this->db->executeNonQuery($query);
+    }
+
+    public function insertProgresso($dataProgresso)
+    {
+        $query = "INSERT INTO progresso(id_sprint, data, remaining_tasks, bugs, improvements, extra_tasks)
+                  VALUES('" . $dataProgresso['idSprint'] . "',
+                         '" . $dataProgresso['data'] . "', 
+                         '" . $dataProgresso['remainingTasks'] . "',
+                         '" . $dataProgresso['bugs'] . "',
+                         '" . $dataProgresso['improvements'] . "',
+                         '" . $dataProgresso['extraTasks'] . "'
+                         )";
+    }
+
+    public function insertSprint($dataSprint)
+    {
+        $query = "INSERT INTO sprint(id_sprint, data, remaining_tasks, bugs, improvements, extra_tasks)
+                  VALUES('" . $dataSprint['nome'] . "',
+                         '" . $dataSprint['startDate'] . "', 
+                         '" . $dataSprint['endDate'] . "',
+                         '" . $dataSprint['totalTasks'] . "',
+                         )";
+    }
+
+    public function deleteProgresso()
+    {
+        
     }
 }
